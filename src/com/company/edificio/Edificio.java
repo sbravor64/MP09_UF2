@@ -5,7 +5,10 @@ import java.util.List;
 
 public class Edificio {
     public static void main(String[] args) {
+
         Ascensor ascensor = new Ascensor(10);
+
+        Motor motor = new Motor(ascensor);
         List<Persona> personas = new ArrayList<>();
 
         Persona andres = new Persona("Andres", ascensor, 5);
@@ -20,14 +23,10 @@ public class Edificio {
         personas.add(jesus);
         personas.add(marco);
 
+        motor.start();
+
         for (Persona p: personas) {
             p.start();
         }
-
-
-
-
-
-
     }
 }

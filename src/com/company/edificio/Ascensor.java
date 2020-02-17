@@ -2,10 +2,12 @@ package com.company.edificio;
 
 public class Ascensor {
     int cont=0;
+    int numPiso;
     int limit;
 
     public Ascensor(int limit) {
         this.limit = limit;
+        numPiso = 0;
     }
 
     public int getCont() {

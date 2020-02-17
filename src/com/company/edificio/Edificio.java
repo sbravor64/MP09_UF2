@@ -8,10 +8,26 @@ public class Edificio {
         Ascensor ascensor = new Ascensor(10);
         List<Persona> personas = new ArrayList<>();
 
-        for (int i = 0; i <20 ; i++) {
-            Persona persona = new Persona("P"+i, ascensor);
-            personas.add(persona);
+        Persona andres = new Persona("Andres", ascensor, 5);
+        Persona roberto = new Persona("Roberto", ascensor, 2);
+        Persona rodrigo = new Persona("Rodrigo", ascensor, 4);
+        Persona jesus = new Persona("Jesus", ascensor, 3);
+        Persona marco = new Persona("Marco", ascensor, 1);
+
+        personas.add(andres);
+        personas.add(roberto);
+        personas.add(rodrigo);
+        personas.add(jesus);
+        personas.add(marco);
+
+        for (Persona p: personas) {
+            p.start();
         }
+
+
+
+
+
 
     }
 }

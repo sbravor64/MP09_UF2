@@ -3,10 +3,12 @@ package com.company.edificio;
 public class Persona extends Thread {
     String nom;
     Ascensor ascensor;
+    int numPiso;
 
-    public Persona(String nom, Ascensor ascensor) {
+    public Persona(String nom, Ascensor ascensor, int numPiso) {
         this.nom = nom;
         this.ascensor = ascensor;
+        this.numPiso= numPiso;
     }
 
     public String getNom() {

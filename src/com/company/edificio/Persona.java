@@ -3,13 +3,14 @@ package com.company.edificio;
 public class Persona extends Thread {
     String nom;
     Ascensor ascensor;
-    int numPiso;
-    boolean c;
+    int numPisoEntrada;
+    int numPisoSalida;
 
-    public Persona(String nom, Ascensor ascensor, int numPiso) {
+    public Persona(String nom, Ascensor ascensor, int numPisoEntrada, int numPisoSalida) {
         this.nom = nom;
         this.ascensor = ascensor;
-        this.numPiso= numPiso;
+        this.numPisoEntrada = numPisoEntrada;
+        this.numPisoSalida = numPisoSalida;
     }
 
     public String getNom() {
@@ -18,15 +19,18 @@ public class Persona extends Thread {
 
     @Override
     public void run() {
-        ascensor.entrar();
-        System.out.println(getNom() + " acaba de entrar al ascensor | " +  "Nº: "+ ascensor.getCont());
-//        try {
-//            Thread.sleep ((int) ((Math.random()*1000)+600));
-//        }catch (InterruptedException e){ e.printStackTrace();}
+        for(;;){
+//            try { Thread.sleep ((int) ((Math.random()*1000)+600));
+//            }catch (InterruptedException e){ e.printStackTrace();}
 
-        ascensor.salir(numPiso, c);
-        if(c==true){
-            System.out.println(getNom() + " acaba de salir del ascensor | " + "Nº: "+ ascensor.getCont());
+            try { Thread.sleep(3000);
+            } catch (InterruptedException e) {e.printStackTrace();}
+
+            ascensor.entrar(numPisoEntrada);
+            System.out.println(getNom() + " acaba de entrar al ascensor | " +  "Nº PISO: "+ ascensor.numP + " | Nº Personas: " + ascensor.getCont());
+
+            ascensor.salir(numPisoSalida);
+            System.out.println(getNom() + " acaba de salir del ascensor | " + "Nº: "+ ascensor.numP + " | Nº Personas: " + ascensor.getCont());
         }
     }
 }

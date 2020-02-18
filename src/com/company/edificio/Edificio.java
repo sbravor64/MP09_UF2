@@ -11,11 +11,11 @@ public class Edificio {
         Motor motor = new Motor(ascensor);
         List<Persona> personas = new ArrayList<>();
 
-        Persona andres = new Persona("Andres", ascensor, 5);
-        Persona roberto = new Persona("Roberto", ascensor, 2);
-        Persona rodrigo = new Persona("Rodrigo", ascensor, 4);
-        Persona jesus = new Persona("Jesus", ascensor, 3);
-        Persona marco = new Persona("Marco", ascensor, 1);
+        Persona andres = new Persona("Andres", ascensor, 2, 9);
+        Persona roberto = new Persona("Roberto", ascensor, 2, 5);
+        Persona rodrigo = new Persona("Rodrigo", ascensor, 4, 1);
+        Persona jesus = new Persona("Jesus", ascensor, 3, 6);
+        Persona marco = new Persona("Marco", ascensor, 1, 10);
 
         personas.add(andres);
         personas.add(roberto);
@@ -23,10 +23,11 @@ public class Edificio {
         personas.add(jesus);
         personas.add(marco);
 
-        motor.start();
-
         for (Persona p: personas) {
             p.start();
         }
+
+        motor.start();
+
     }
 }

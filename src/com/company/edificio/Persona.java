@@ -1,6 +1,10 @@
 package com.company.edificio;
 
 public class Persona extends Thread {
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+
     String nom;
     Ascensor ascensor;
     int numPisoEntrada;
@@ -22,15 +26,11 @@ public class Persona extends Thread {
         for(;;){
 //            try { Thread.sleep ((int) ((Math.random()*1000)+600));
 //            }catch (InterruptedException e){ e.printStackTrace();}
-
-            try { Thread.sleep(3000);
-            } catch (InterruptedException e) {e.printStackTrace();}
-
             ascensor.entrar(numPisoEntrada);
-            System.out.println(getNom() + " acaba de entrar al ascensor | " +  "Nº PISO: "+ ascensor.numP + " | Nº Personas: " + ascensor.getCont());
+            System.out.println(ANSI_RED + getNom() + " acaba de entrar al ascensor | " + "Nº Personas: " + ascensor.getCont() + ANSI_RESET);
 
             ascensor.salir(numPisoSalida);
-            System.out.println(getNom() + " acaba de salir del ascensor | " + "Nº: "+ ascensor.numP + " | Nº Personas: " + ascensor.getCont());
+            System.out.println(ANSI_GREEN + getNom() + " acaba de salir del ascensor | " + "Nº Personas: " + ascensor.getCont() + ANSI_RESET);
         }
     }
 }

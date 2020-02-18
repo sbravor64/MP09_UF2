@@ -26,6 +26,10 @@ public class Ascensor {
         }
     }
 
+    public synchronized void notificar(){
+        notifyAll();
+    }
+
     public synchronized void salir(int numPiso) {
         try {
             while (numP !=numPiso) wait();

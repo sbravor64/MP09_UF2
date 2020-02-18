@@ -22,9 +22,10 @@ public class Motor extends Thread {
                     if(ascensor.numP <=ascensor.limitPiso){
                         if(ascensor.numP ==ascensor.limitPiso){nivel = Nivel.BAJANDO;}
                         else{
-                            try { Thread.sleep(1000);
+                            try { Thread.sleep(2000);
                             } catch (InterruptedException e) {e.printStackTrace();}
                             ascensor.numP++;
+                            ascensor.notificar();
                             System.out.println("SUBIENDO AL " + ascensor.numP);
                         }
                         }
@@ -33,9 +34,10 @@ public class Motor extends Thread {
                     if(ascensor.numP >= 0){
                         if(ascensor.numP ==0){nivel = Nivel.SUBIENDO;}
                         else{
-                            try { Thread.sleep(1000);
+                            try { Thread.sleep(2000);
                             } catch (InterruptedException e) {e.printStackTrace();}
                             ascensor.numP--;
+                            ascensor.notificar();
                             System.out.println("BAJANDO AL " + ascensor.numP);
                         }
                     }
